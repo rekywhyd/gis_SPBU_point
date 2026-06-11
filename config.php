@@ -1,4 +1,9 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "gis_point");
+$host = getenv('DB_HOST') ?: "localhost";
+$user = getenv('DB_USER') ?: "root";
+$pass = getenv('DB_PASS') ?: "";
+$name = getenv('DB_NAME') ?: "gis_point";
+
+$conn = mysqli_connect($host, $user, $pass, $name);
 if (!$conn) { die("Koneksi gagal: " . mysqli_connect_error()); }
 ?>
